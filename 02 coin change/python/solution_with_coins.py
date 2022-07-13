@@ -1,4 +1,4 @@
-import numbers
+from re import A
 
 
 def main():
@@ -6,14 +6,25 @@ def main():
         [ [1, 4, 5], 9],
         [ [1, 2, 5, 10], 13],
         [ [2, 5, 10], 3],
-        [ [1, 2, 5, 10, 15], 33]
+        [ [1, 2, 5, 10, 15], 33],
+        [ [1, 5, 7, 9, 11], 6],
+        [ [1, 5, 7, 9, 11], 25],
+        [ [1, 5, 7, 9, 11], 2]
     ]
 
     for test in tests:
-        coins, ammount = test
-        result, coins = coin_change(coins, ammount)
-        print(f"Coins: {coins}\nAmmount: {ammount}\nResult: {coins} ({result})\n")
+        _coins, ammount = test
+        result, coins = coin_change(_coins, ammount)
+        print(f"Coins: {_coins}\nAmmount: {ammount}\nResult: {coins} ({result})\n")
 
+a = [1,2,3,4,5,6]
+b = a
+b == a
+
+a[0] = 0
+
+a = [0,1,2,3,4,5,6]
+b = [0,1,2,3,4,5,6]
 """
 Solucion bottom up
 1. Crear un arreglo de ammount + 1 espacios
@@ -42,6 +53,7 @@ def coin_change(coins : list[int], ammount : int):
         for i in range(coin, ammount + 1):
             actual = changes[i]
             new = changes[i - coin] + 1
+            
             if new < actual:
                 changes[i] = new
                 coin_change[i] = coin_change[i - coin].copy()

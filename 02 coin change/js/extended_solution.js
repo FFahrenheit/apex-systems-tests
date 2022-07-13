@@ -4,7 +4,7 @@
         [ [1, 2, 5, 10], 13],
         [ [2, 5, 10], 3],
         [ [1, 2, 5, 10, 15], 33]
-    ]
+    ];
 
     tests.forEach(test => {
         const coins = test[0];
@@ -27,14 +27,14 @@
 
 function coinChange(coins, ammount){
     let changes = [];
-    for(let i = 0; i < ammount + 1; i++){
+    for(let i = 0; i <= ammount; i++){
         changes.push(ammount + 1);
     }
     changes[0] = 0;
 
     coins.forEach(coin => {
 
-        for(let i = coin; i < ammount + 1; i++){
+        for(let i = coin; i < changes.length; i++){
             const actual = changes[i];
             const newChange = changes[i - coin] + 1;
             if(newChange < actual){

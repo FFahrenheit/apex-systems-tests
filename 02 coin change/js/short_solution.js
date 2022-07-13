@@ -26,11 +26,11 @@
 
 
 function coinChange(coins, ammount){
-    let changes = Array.from({length: ammount + 1}, (_) => ammount + 1);
-    changes[0] = 0
+    let changes = Array.from({length: ammount + 1}, () => ammount + 1);
+    changes[0] = 0;
 
     coins.forEach(coin => {
-        for(let i = coin; i < ammount + 1; i++){
+        for(let i = coin; i <= ammount; i++){
             changes[i] = Math.min(changes[i], changes[i - coin] + 1);
         }
     });

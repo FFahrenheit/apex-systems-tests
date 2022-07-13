@@ -1,6 +1,3 @@
-import numbers
-
-
 def main():
     tests = [
         [ [1, 4, 5], 9],
@@ -34,8 +31,9 @@ Solucion bottom up
 """
 def coin_change(coins : list[int], ammount : int):
     changes = []
+    coins = reversed(coins)
     for _ in range(0, ammount + 1):
-        changes.append(ammount+1)
+        changes.append(ammount + 1)
     changes[0] = 0
 
     for coin in coins:
@@ -43,12 +41,13 @@ def coin_change(coins : list[int], ammount : int):
             actual = changes[i]
             new = changes[i - coin] + 1
 
-            changes[i] = min(new, actual)
+            if new < actual:
+                changes[i] = new
     
     if changes[ammount] > ammount:
-        return -1
+        return -1                       # No hay solución
     else:
-        return changes[ammount]
+        return changes[ammount]         # La solución
     
 if __name__ == '__main__':
     main()
