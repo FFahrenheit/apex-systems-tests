@@ -5,7 +5,7 @@
         [1, 1, 1, 1, 1, 0, 2],
         [3, 4, 2, 1, 1, 100],
         [1, 3, 6, 8, 2, 7, 1, 2, 1, 2, 6, 1, 2, 1, 2]
-    ]
+    ];
 
     tests.forEach(test => {
         const jumps = _minimumJumps(test);

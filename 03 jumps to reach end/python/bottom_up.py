@@ -24,8 +24,8 @@ def minimum_jumps(cells : list[int]):
         # Desde el inicio hasta nuestro salto
         for j in range(i):
             # Podemos llegar desde j hasta i?       [j i - - -], [j - - - - i]
-            # Si la posicion de origen + los posibles saltos son mayorres que la posicion destino ...
-            # Y para empezar, podemos llegar a la posicion de destino
+            # Si la posicion de origen + los posibles saltos son mayores que la posicion destino ...
+            # Y para empezar, podemos llegar a la posicion de origen
             if (j + cells[j]) >= i and jumps[j] != MAX:
                 # Elegimos el camino mas corto, ya sea el que ya esta puesto
                 # O (lo que necesitamos para llegar al origen) + el salto desde el origen
